@@ -16,7 +16,7 @@ function generateMarkdown(reply) {
   ![License](https://img.shields.io/badge/License-${reply.license}-red)
 
   ## Table of Contents
-  * [Description](#description)n
+  * [Description](#description)
   * [Installation](#installation)
   * [Usage](#usage)
   * [Tests](#tests)
@@ -38,16 +38,16 @@ function generateMarkdown(reply) {
   
   ## Questions
   Please see my GitHub page here:
-  - [GitHub](https://github.com/${response.username})
+  - [GitHub](https://github.com/${reply.username})
 
-  or send me an email with questins to: ${response.email}.
+  or send me an email: ${reply.email}
 
   ## Contributers
   ${reply.contributers}
  
   
   ## License
-  ${reply.license}`;
+  ![License](https://img.shields.io/badge/License-${reply.license}-red)`;
 }
 
 module.exports = generateMarkdown;
