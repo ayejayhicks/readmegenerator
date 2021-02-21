@@ -14,12 +14,15 @@ function renderLicenseSection(license) {}
 function generateMarkdown(reply) {
   return `# ${reply.title}
 
+  ## README Generator
+  ${reply.title}
+
   ## Table of Contents
   * [Description](#description)
   * [Installation](#installation)
   * [Usage](#usage)
   * [Tests](#tests)
-  * [Questions](#questions)
+  * [Contact](#contact)
   * [Contributers](#contributers)
   * [License](#license)
 
@@ -34,11 +37,6 @@ function generateMarkdown(reply) {
   
   ## Tests
   ${reply.tests}
-  
-  ## Questions
-  ${reply.github}
-
-  ${reply.email}
   
   ## Contributers
   ${reply.contributers}
