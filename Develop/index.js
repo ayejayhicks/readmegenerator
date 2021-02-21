@@ -4,15 +4,8 @@ const inquirer = require("inquirer");
 const util = require("util");
 const generateMarkdown = require("./utils/generateMarkdown.js");
 
-// const writeFileAsync = util.promisify(fs.writeFile);
-
-// TODO: Create a function to initialize app
-// function init() {
-//     console.log("Start");
-//     console.log("Your README is attached!");
-
-inquirer
-    .prompt([
+// TODO: Create a function to initialize app    
+const questions = [
         {
             name: "title",
             type: "input",
@@ -39,20 +32,9 @@ inquirer
             message: "What is your usage information?"
         },
         {
-            name: "contributers",
-            type: "input",
-            message: "Who were the contributers to this project?"
-        },
-        {
             name: "test",
             type: "input",
             message: "What are your test instructions?",
-        },
-        {
-            name: "license",
-            type: "list",
-            choices: ["MIT", "Apache", "GPL", "None"],
-            message: "What is your project license?"
         },
         {
             name: "github",
@@ -63,17 +45,30 @@ inquirer
             name: "email",
             type: "input",
             message: "What is your email address?"
-        }
-    ])
+        },
+        {
+            name: "license",
+            type: "list",
+            choices: ["MIT", "Apache", "GPL", "None"],
+            message: "What is your project license?"
+        },
+        {
+            name: "contributers",
+            type: "input",
+            message: "Who were the contributers to this project?"
+        },
+    ];
 
-// Function call to initialize app
-.then(response => {
-        console.log(response);
-        fs.writeFile("newREADME.md", generateMarkdown(response), function (err) {
-            if (err) {
-                return console.log(err);
-            }
-            console.log("Success!");
-        });
-    });
+const writeFileAsync = util.promisify(fs.writeFile);
+
+function init () {
+    inquirer.prompt(questions).then((answers)=> {
+        const README = generateMarkdown(answers);
+        return writeFileAsync ("README.md", README)
+    })
+    .then (() => console.log("Success!"))
+    .catch (err => console.error(err));
+}
+
+init();
 
