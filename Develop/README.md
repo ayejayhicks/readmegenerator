@@ -1,4 +1,4 @@
-# README Generator README Generator
+# README Generator
   ![License](https://img.shields.io/badge/License-MIT-red)
 
   ## Table of Contents
