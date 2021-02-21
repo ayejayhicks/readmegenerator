@@ -16,11 +16,11 @@ const questions = [
             type: "input",
             message: "What is a description of your project?"
         },
-        {
-            name: "contents",
-            type: "input",
-            message: "What is your table of contents?"
-        },
+        // {
+        //     name: "contents",
+        //     type: "input",
+        //     message: "What is your table of contents?"
+        // },
         {
             name: "installation",
             type: "input",
@@ -32,9 +32,9 @@ const questions = [
             message: "What is your usage information?"
         },
         {
-            name: "test",
+            name: "tests",
             type: "input",
-            message: "What are your test instructions?",
+            message: "What are your tests instructions?",
         },
         {
             name: "github",
