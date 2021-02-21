@@ -1,30 +1,42 @@
 // TODO: Include packages needed for this application
 const fs = require("fs");
 const inquirer = require("inquirer");
+const util = require("util");
+const generateMarkdown = require("./utils/generateMarkdown.js");
 
-// inquirer
-//     .prompt
-function promptUser() {
-    return inquirer.prompt([
+// const writeFileAsync = util.promisify(fs.writeFile);
+
+// TODO: Create a function to initialize app
+// function init() {
+//     console.log("Start");
+//     console.log("Your README is attached!");
+
+inquirer
+    .prompt([
         {
             name: "title",
             type: "input",
-            message: "What is your project title?",
+            message: "What is your project title?"
         },
         {
             name: "description",
             type: "input",
-            message: "Please write a short description of your project:"
+            message: "What is a description of your project?"
+        },
+        {
+            name: "contents",
+            type: "input",
+            message: "What is your table of contents?"
         },
         {
             name: "installation",
             type: "input",
-            message: "Please provide installation instructions:"
+            message: "What are your installation instructions?"
         },
         {
             name: "usage",
             type: "input",
-            message: "Please provide usage information:"
+            message: "What is your usage information?"
         },
         {
             name: "contributers",
@@ -40,7 +52,7 @@ function promptUser() {
             name: "license",
             type: "list",
             choices: ["MIT", "Apache", "GPL", "None"],
-            message: "What license did you use?"
+            message: "What is your project license?"
         },
         {
             name: "github",
@@ -50,39 +62,18 @@ function promptUser() {
         {
             name: "email",
             type: "input",
-            message: "What is your email address?",
+            message: "What is your email address?"
         }
-    ]);
-}
-
-// TODO: Create an array of questions for user input
-// const questions = [];
-
-// TODO: Create a function to write README file
-// function writeToFile(README.md, markdown) { }
-promptUser().then(response) => {
-    console.log(response);
-    console.log(response.title);
-    console.log(response.description);
-    console.log(response.installation);
-    console.log(response.usage);
-    console.log(response.contributors);
-    console.log(response.test);
-    console.log(response.license);
-    console.log(response.github);
-    console.log(response.email):
-})
-
-// TODO: Create a function to initialize app
-function init() { }
+    ])
 
 // Function call to initialize app
-init();
-
-// .then((response)) =>
-// fs.writeFile
-
-
-
-// ${ response.   }
+.then(response => {
+        console.log(response);
+        fs.writeFile("newREADME.md", generateMarkdown(response), function (err) {
+            if (err) {
+                return console.log(err);
+            }
+            console.log("Success!");
+        });
+    });
 
