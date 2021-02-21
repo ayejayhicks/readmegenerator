@@ -32,7 +32,7 @@ const questions = [
             message: "What are your tests instructions?",
         },
         {
-            name: "github",
+            name: "username",
             type: "input",
             message: "What is your Github username:"
         },

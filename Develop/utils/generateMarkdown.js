@@ -13,13 +13,14 @@ function renderLicenseSection(license) {}
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(reply) {
   return `# README Generator ${reply.title}
+  ![License](https://img.shields.io/badge/License-${reply.license}-red)
 
   ## Table of Contents
   * [Description](#description)n
   * [Installation](#installation)
   * [Usage](#usage)
   * [Tests](#tests)
-  * [Questions](#questions)
+  * [Questions](#username)
   * [Contributers](#contributers)
   * [License](#license)
 
@@ -36,10 +37,14 @@ function generateMarkdown(reply) {
   ${reply.tests}
   
   ## Questions
-  ${reply.questions}
+  Please see my GitHub page here:
+  - [GitHub](https://github.com/${response.username})
+
+  or send me an email with questins to: ${response.email}.
 
   ## Contributers
   ${reply.contributers}
+ 
   
   ## License
   ${reply.license}`;
